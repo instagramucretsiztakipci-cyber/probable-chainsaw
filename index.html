@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ücretsiz Takipçi</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f5f7ff, #e8f0ff);
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 430px;
+      background: white;
+      padding: 30px 24px;
+      border-radius: 22px;
+      box-shadow: 0 10px 35px rgba(0,0,0,.12);
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+    }
+
+    .subtitle {
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 25px;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      border: 0;
+      border-radius: 12px;
+      background: #246bfe;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: .9;
+    }
+
+    #message {
+      margin-top: 18px;
+      font-weight: bold;
+      min-height: 24px;
+    }
+
+    .info {
+      margin-top: 25px;
+      padding: 15px;
+      background: #f4f7ff;
+      border-radius: 14px;
+      font-size: 13px;
+      color: #555;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>✨ Ücretsiz Takipçi</h1>
+
+    <p class="subtitle">
+      Instagram hesabını büyütmek için ücretsiz demo aracımızı deneyebilirsin.
+    </p>
+
+    <input
+      type="text"
+      id="username"
+      placeholder="Instagram kullanıcı adın"
+      autocomplete="off"
+    >
+
+    <button onclick="startDemo()">
+      Ücretsiz Dene
+    </button>
+
+    <div id="message"></div>
+
+    <div class="info">
+      🔒 Şifre istemiyoruz ve hesabına giriş yapmıyoruz.
+      Bu sayfa yalnızca güvenli bir demo/tanıtım amaçlıdır.
+    </div>
+  </div>
+
+  <script>
+    function startDemo() {
+      const username = document.getElementById("username").value.trim();
+      const message = document.getElementById("message");
+
+      if (!username) {
+        message.textContent = "Lütfen kullanıcı adını yaz.";
+        return;
+      }
+
+      message.textContent =
+        "Demo hazır! Kullanıcı adın alındı: @" + username;
+    }
+  </script>
+
+</body>
+</html>
