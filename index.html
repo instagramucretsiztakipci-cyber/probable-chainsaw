@@ -1,130 +1,229 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ücretsiz Takipçi</title>
-  <style>
-    * { box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram Tarzı Sayfa</title>
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #f5f7ff, #e8f0ff);
-      color: #222;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 20% 20%, #833ab4 0%, transparent 35%),
+        radial-gradient(circle at 80% 80%, #fd1d1d 0%, transparent 35%),
+        linear-gradient(135deg, #0f0018, #1b002b, #080008);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.container {
+    width: 100%;
+    max-width: 430px;
+    text-align: center;
+}
+
+.card {
+    padding: 35px 25px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+    animation: show 0.7s ease;
+}
+
+.logo {
+    width: 82px;
+    height: 82px;
+    margin: 0 auto 18px;
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 42px;
+    background: linear-gradient(135deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+    box-shadow: 0 10px 35px rgba(214,41,118,.4);
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.description {
+    color: #d6d0da;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.input-box {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 14px;
+    background: rgba(0,0,0,.25);
+    color: white;
+    outline: none;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.input-box::placeholder {
+    color: #aaa;
+}
+
+.input-box:focus {
+    border-color: #d62976;
+    box-shadow: 0 0 15px rgba(214,41,118,.25);
+}
+
+.button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 14px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(90deg, #833ab4, #e1306c, #fd1d1d);
+    transition: .25s;
+    box-shadow: 0 8px 25px rgba(225,48,108,.25);
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(225,48,108,.4);
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.feature {
+    padding: 15px 8px;
+    border-radius: 16px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.08);
+}
+
+.feature-icon {
+    font-size: 22px;
+    margin-bottom: 7px;
+}
+
+.feature span {
+    display: block;
+    font-size: 11px;
+    color: #ccc;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 11px;
+    color: #999;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(.98);
     }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
 
+@media (max-width: 400px) {
     .card {
-      width: 100%;
-      max-width: 430px;
-      background: white;
-      padding: 30px 24px;
-      border-radius: 22px;
-      box-shadow: 0 10px 35px rgba(0,0,0,.12);
-      text-align: center;
+        padding: 28px 18px;
     }
 
     h1 {
-      margin: 0 0 10px;
-      font-size: 30px;
+        font-size: 24px;
     }
-
-    .subtitle {
-      color: #666;
-      line-height: 1.5;
-      margin-bottom: 25px;
-    }
-
-    input {
-      width: 100%;
-      padding: 15px;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      font-size: 16px;
-      margin-bottom: 12px;
-    }
-
-    button {
-      width: 100%;
-      padding: 15px;
-      border: 0;
-      border-radius: 12px;
-      background: #246bfe;
-      color: white;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:hover {
-      opacity: .9;
-    }
-
-    #message {
-      margin-top: 18px;
-      font-weight: bold;
-      min-height: 24px;
-    }
-
-    .info {
-      margin-top: 25px;
-      padding: 15px;
-      background: #f4f7ff;
-      border-radius: 14px;
-      font-size: 13px;
-      color: #555;
-      line-height: 1.5;
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <div class="card">
-    <h1>✨ Ücretsiz Takipçi</h1>
+<div class="container">
 
-    <p class="subtitle">
-      Instagram hesabını büyütmek için ücretsiz demo aracımızı deneyebilirsin.
-    </p>
+    <div class="card">
 
-    <input
-      type="text"
-      id="username"
-      placeholder="Instagram kullanıcı adın"
-      autocomplete="off"
-    >
+        <div class="logo">◎</div>
 
-    <button onclick="startDemo()">
-      Ücretsiz Dene
-    </button>
+        <h1>Instagram Tarzı</h1>
 
-    <div id="message"></div>
+        <p class="description">
+            Modern, hızlı ve mobil uyumlu sosyal medya arayüzü.
+        </p>
 
-    <div class="info">
-      🔒 Şifre istemiyoruz ve hesabına giriş yapmıyoruz.
-      Bu sayfa yalnızca güvenli bir demo/tanıtım amaçlıdır.
+        <input
+            class="input-box"
+            type="text"
+            placeholder="@kullaniciadi"
+        >
+
+        <button class="button" onclick="demoButton()">
+            Devam Et
+        </button>
+
+        <div class="features">
+
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <span>Hızlı</span>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <span>Mobil</span>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">✨</div>
+                <span>Modern</span>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            Instagram ile bağlantılı değildir.
+        </div>
+
     </div>
-  </div>
 
-  <script>
-    function startDemo() {
-      const username = document.getElementById("username").value.trim();
-      const message = document.getElementById("message");
+</div>
 
-      if (!username) {
-        message.textContent = "Lütfen kullanıcı adını yaz.";
+<script>
+function demoButton() {
+    const input = document.querySelector(".input-box");
+
+    if (!input.value.trim()) {
+        alert("Lütfen bir kullanıcı adı girin.");
         return;
-      }
-
-      message.textContent =
-        "Demo hazır! Kullanıcı adın alındı: @" + username;
     }
-  </script>
+
+    alert("Demo butonu çalıştı! Kullanıcı adı: " + input.value);
+}
+</script>
 
 </body>
 </html>
